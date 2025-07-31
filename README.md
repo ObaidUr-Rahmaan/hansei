@@ -34,9 +34,15 @@ A modern React Native boilerplate using Expo, NativeWind, and TailwindCSS for ra
 
 ### Prerequisites
 
-- Node.js 18+
-- iOS Simulator (macOS) or Android Studio
-- Expo CLI (optional but recommended)
+**Required Versions (tested with this project):**
+- **Node.js v24.4.1+** (LTS recommended)
+- **npm v11.4.2+** or **Bun v1.2.16+**
+- **Java (OpenJDK) v17.0.16+** (for Android development)
+
+**Platform Requirements:**
+- **iOS Development**: Xcode with iOS Simulator (macOS only)
+- **Android Development**: Android Studio with Android emulator
+- **Expo CLI** (optional but recommended): `npm install -g @expo/cli`
 
 ### Setup
 
@@ -48,7 +54,22 @@ A modern React Native boilerplate using Expo, NativeWind, and TailwindCSS for ra
 
 2. **Android Setup** (Required for Android development)
 
-   Copy the Android local properties template:
+   **Install Android Studio:**
+   1. Download and install [Android Studio](https://developer.android.com/studio)
+   2. Open Android Studio and follow the setup wizard
+   3. Install the Android SDK (API level 34+ recommended)
+   4. Install Android SDK Build-Tools
+   5. Install Android Emulator
+
+   **Create and Start Android Emulator:**
+   1. Open Android Studio
+   2. Go to **Tools → Device Manager** (or **AVD Manager**)
+   3. Click **Create Device** and select a device (Pixel 7 recommended)
+   4. Choose a system image (API 34+ recommended) and download if needed
+   5. Click **Finish** to create the AVD
+   6. Click the **Play** button to start the emulator
+
+   **Configure Local Properties:**
    ```bash
    cp android/local.properties.example android/local.properties
    ```
@@ -58,18 +79,32 @@ A modern React Native boilerplate using Expo, NativeWind, and TailwindCSS for ra
    - **Windows**: `C:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk`
    - **Linux**: `/home/YOUR_USERNAME/Android/Sdk`
 
+   **Important**: Make sure your Android emulator is running before proceeding to step 3.
+
 3. Start the app
 
+   **For Development Server:**
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+   **For Android (requires running emulator):**
+   ```bash
+   # Make sure Android emulator is running first!
+   bunx expo run:android
+   ```
+
+   **For iOS (macOS only):**
+   ```bash
+   npx expo run:ios
+   ```
+
+In the development server output, you'll find options to open the app in a:
 
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/) - **Must be running before using `bunx expo run:android`**
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [Expo Go](https://expo.dev/go) - Limited sandbox for basic Expo features
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
