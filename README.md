@@ -13,6 +13,13 @@ A modern React Native boilerplate using Expo, NativeWind, and TailwindCSS for ra
 - 🎯 **Cross-platform** - iOS, Android, and Web support
 - 🚀 **Fast Refresh** - Instant development feedback
 
+## Integration Status
+
+- ✅ **React Native + Expo** - Core mobile framework (Complete)
+- 🚧 **Convex** - Real-time database and backend (Next Priority)
+- ⏳ **Clerk** - Authentication with passkeys (Planned)
+- ⏳ **RevenueCat** - Subscription management (Planned)
+
 ## Tech Stack
 
 ### Core
