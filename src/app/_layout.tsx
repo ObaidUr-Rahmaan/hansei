@@ -10,6 +10,8 @@ import { Slot, SplashScreen } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { ConvexWrapper } from "../providers/ConvexProvider";
+import { initializeConfig } from "../config";
 import "../global.css";
 
 SplashScreen.preventAutoHideAsync();
@@ -23,6 +25,9 @@ const InitialLayout = () => {
   });
 
   useEffect(() => {
+    // Initialize app configuration
+    initializeConfig();
+    
     if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
@@ -30,7 +35,11 @@ const InitialLayout = () => {
 
   if (!fontsLoaded) return null;
 
-  return <Slot />;
+  return (
+    <ConvexWrapper>
+      <Slot />
+    </ConvexWrapper>
+  );
 }
 
 const RootLayout = () => {
